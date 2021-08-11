@@ -1,0 +1,43 @@
+<h1>{{title}}</h1>
+
+<div class="container-fluid d-flex" style="justify-content: space-between;">
+    <div class="row">
+        <form method="post" action="/purchase">
+        {{#each gallery}}
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="selectedName" value="{{this.filename}}" id="{{this.filename}}">
+            <label class="form-check-label" for="{{selectedName}}">
+                Name: {{this.filename}}  Price: {{this.price}} Status: {{this.status}}
+            </label>
+        </div>
+        {{/each}}
+        <button type="submit" class="btn btn-primary" id="buy">Buy</button>
+        <button type="submit" class="btn btn-primary" id="cancel">Cancel</button>
+
+    </form>
+    </div>
+    <div class="row">
+        <div class="card" style="width: 18rem;">
+            <img src="{{hero.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{hero.filename}}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="flex-direction: column;">
+    <a class="btn btn-primary" href="/auth/logout">Logout</a>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+  $("#buy").click(function(){
+    alert("Sold.");
+  });
+  $("#cancel").click(function(){
+    alert("May be next time.");
+    location.replace("/");
+    return false;
+  });
+});
+</script>
