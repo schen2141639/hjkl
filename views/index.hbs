@@ -1,5 +1,5 @@
 <h1>{{title}}</h1>
-
+<div class="container">
 <div class="container-fluid d-flex" style="justify-content: space-between;">
     <div class="row">
         <form method="post" action="/image">
@@ -25,5 +25,7 @@
     </div>
     <div class="row" style="flex-direction: column;">
     <a class="btn btn-primary" href="/auth/logout">Logout</a>
+    <span>Hi {{user}}</span>
     </div>
+</div>
 </div>
